@@ -9,12 +9,8 @@ bool solve(string input)
 	regex re{"[\\s,-]"};
 	sregex_token_iterator it {input.begin(), input.end(), re, -1};
 	vector<string> parts {it, {}};
-	vector<char> position;
 	
-	for (auto c : parts[3])
-		position.push_back(c);
-	
-	return position[stoi(parts[0]) - 1] == parts[2][0] ^ position[stoi(parts[1]) - 1] == parts[2][0];
+	return parts[3][stoi(parts[0]) - 1] == parts[2][0] ^ parts[3][stoi(parts[1]) - 1] == parts[2][0];
 }
 
 
